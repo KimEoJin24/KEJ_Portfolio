@@ -8,12 +8,16 @@ public class GameData
     public long lastUpdated;
 
     public SerializableDictionary<string, bool> hiddenItemsCollected;
-    public SerializableDictionary<string, bool> stageClear;
+    public bool[] stageClear;
 
     public GameData()
     {
         hiddenItemsCollected = new SerializableDictionary<string, bool>();
-        stageClear = new SerializableDictionary<string, bool>();
+
+        for(int i=0; i<stageClear.Length; i++)
+        {
+            stageClear[i] = false;
+        }
     }
 
     public int GetPercentageComplete()
